@@ -212,7 +212,7 @@ export function activate(context: vscode.ExtensionContext) {
 		provideDocumentRangeFormattingEdits(document, range) {
 			return runRemark(document, range).then((result: IResult) => {
 				return [vscode.TextEdit.replace(range, result.content)];
-			}).catch(showOutput);
+			}).catch(showOutput) as any;
 		}
 	});
 
